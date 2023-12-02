@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Checkbox from "@mui/material/Checkbox";
 import "./App.css";
 
 function App() {
@@ -6,10 +7,10 @@ function App() {
   const [todoList, setTodoList] = useState([]);
   const [inputError, setInputError] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
+  const [checkedTasks, setCheckedTasks] = useState([]);
 
-  function handleClick() {
+  function handleClickTaskAdd() {
     if (task.trim() === "") {
-      
       setInputError(true);
 
       setTimeout(() => {
@@ -19,9 +20,7 @@ function App() {
       return;
     }
 
-  
     if (todoList.includes(task)) {
-  
       setShowPopup(true);
 
       setTimeout(() => {
@@ -31,13 +30,19 @@ function App() {
       return;
     }
 
-    console.log("Task Added", task);
     setTodoList([...todoList, task]);
+    setCheckedTasks([...checkedTasks, false]);
     setTask("");
   }
 
   function handleChange(e) {
     setTask(e.target.value);
+  }
+
+  function handleChangeCheckBox(index) {
+    const updatedCheckedTask = [...checkedTasks];
+    updatedCheckedTask[index] = !updatedCheckedTask[index];
+    setCheckedTasks(updatedCheckedTask);
   }
 
   return (
@@ -47,7 +52,7 @@ function App() {
       </header>
 
       <main>
-        <section className={`container ${inputError ? 'shake' : ''}`}>
+        <section className={`container ${inputError ? "shake" : ""}`}>
           <input
             type="text"
             name="task"
@@ -55,15 +60,23 @@ function App() {
             value={task}
             onChange={handleChange}
           />
-
-          <button onClick={handleClick}>Add Task</button>
+          <button onClick={handleClickTaskAdd}>Add Task</button>
         </section>
 
         <section className="container">
           <div>
             {todoList.map((item, index) => (
               <div key={index} className="todoItem">
-                <h3>{item}</h3>
+                <h3 className={checkedTasks[index] ? "strikethrough" : ""}>
+                  <Checkbox
+                    sx={{
+                      color: "white",
+                    }}
+                    checked={checkedTasks[index]}
+                    onChange={() => handleChangeCheckBox(index)}
+                  />
+                  {item}
+                </h3>
               </div>
             ))}
           </div>
@@ -73,7 +86,6 @@ function App() {
       {showPopup && (
         <div className="popup">
           <p>Task already exists!</p>
-          
         </div>
       )}
 
