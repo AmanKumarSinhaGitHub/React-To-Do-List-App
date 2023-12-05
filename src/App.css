@@ -30,7 +30,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0.5em;
+  margin: 0.5em;
 }
 
 button {
@@ -83,7 +83,7 @@ input {
   font-size: 16px;
   border: 1px solid var(--primary-color);
   border-radius: 6px;
-  width: 20vw;
+  width: 25vw;
   transition: box-shadow .15s, transform .15s;
 }
 
@@ -104,11 +104,11 @@ input:active {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12px;
-  font-size: 16px;
+  padding: 6px;
+  font-size: 14px;
   border: 1px solid var(--primary-color);
   border-radius: 6px;
-  width: 30vw;
+  width: 35vw;
   transition: box-shadow 0.15s, transform 0.15s;
   box-sizing: border-box;
   margin-bottom: 10px;
@@ -206,4 +206,23 @@ input:active {
 
 .deleteItem:hover {
   color: rgb(186, 29, 29); 
+}
+
+@media screen and (max-width: 600px) {
+  #title h1 {
+    font-size: 2em;
+  }
+
+  button {
+    font-size: 18px;
+  }
+
+  input {
+    font-size: 16px;
+    width: 50vw;
+  }
+
+  .todoItem {
+    width: 80%;
+  }
 }
