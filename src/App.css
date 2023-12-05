@@ -19,7 +19,7 @@ body {
   margin: 1em;
 }
 
-footer h3 {
+#footerText{
   font-style: italic;
   margin-top: 1em;
 }
@@ -99,6 +99,9 @@ input:active {
 }
 
 .todoItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 12px;
   font-size: 16px;
   border: 1px solid var(--primary-color);
@@ -181,4 +184,24 @@ input:active {
 
 .strikethrough {
   text-decoration: line-through;
+}
+
+.itemName p{
+  font-size: 1.5em;
+}
+
+.todoListContainer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.deleteItem {
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.deleteItem:hover {
+  color: rgb(186, 29, 29); 
 }

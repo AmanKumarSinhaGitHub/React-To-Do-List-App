@@ -1,13 +1,13 @@
 import { useState } from "react";
 import Checkbox from "@mui/material/Checkbox";
+import ClearIcon from "@mui/icons-material/Clear";
 import "./App.css";
 
 function App() {
   const [task, setTask] = useState("");
-  const [todoList, setTodoList] = useState([]);
+  const [taskList, setTaskList] = useState([]);
   const [inputError, setInputError] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
-  const [checkedTasks, setCheckedTasks] = useState([]);
 
   function handleClickTaskAdd() {
     if (task.trim() === "") {
@@ -20,7 +20,7 @@ function App() {
       return;
     }
 
-    if (todoList.includes(task)) {
+    if (taskList.some((t) => t.text === task)) {
       setShowPopup(true);
 
       setTimeout(() => {
@@ -30,8 +30,7 @@ function App() {
       return;
     }
 
-    setTodoList([...todoList, task]);
-    setCheckedTasks([...checkedTasks, false]);
+    setTaskList([...taskList, { text: task, isChecked: false }]);
     setTask("");
   }
 
@@ -40,9 +39,15 @@ function App() {
   }
 
   function handleChangeCheckBox(index) {
-    const updatedCheckedTask = [...checkedTasks];
-    updatedCheckedTask[index] = !updatedCheckedTask[index];
-    setCheckedTasks(updatedCheckedTask);
+    const updatedTaskList = [...taskList];
+    updatedTaskList[index].isChecked = !updatedTaskList[index].isChecked;
+    setTaskList(updatedTaskList);
+  }
+
+  function handleDeleteTask(index) {
+    const updatedTaskList = [...taskList];
+    updatedTaskList.splice(index, 1);
+    setTaskList(updatedTaskList);
   }
 
   return (
@@ -63,23 +68,38 @@ function App() {
           <button onClick={handleClickTaskAdd}>Add Task</button>
         </section>
 
-        <section className="container">
-          <div>
-            {todoList.map((item, index) => (
-              <div key={index} className="todoItem">
-                <h3 className={checkedTasks[index] ? "strikethrough" : ""}>
+        <section className="todoListContainer">
+          {taskList.map((task, index) => (
+            <div key={index} className="todoItem">
+              <div className="container">
+                <div className="checkBox">
                   <Checkbox
                     sx={{
                       color: "white",
                     }}
-                    checked={checkedTasks[index]}
+                    checked={task.isChecked}
                     onChange={() => handleChangeCheckBox(index)}
                   />
-                  {item}
-                </h3>
+                </div>
+
+                <div className=" itemName">
+                  <p className={task.isChecked ? "strikethrough" : ""}>
+                    {task.text}
+                  </p>
+                </div>
               </div>
-            ))}
-          </div>
+              <div
+                className="deleteItem"
+                onClick={() => handleDeleteTask(index)}
+              >
+                <ClearIcon
+                  sx={{
+                    fontSize: "1.5em",
+                  }}
+                />
+              </div>
+            </div>
+          ))}
         </section>
       </main>
 
@@ -90,7 +110,7 @@ function App() {
       )}
 
       <footer className="container">
-        <h3>Thanks for using our To-Do-List App 💖</h3>
+        <h3 id="footerText">Thanks for using our To-Do-List App 💖</h3>
       </footer>
     </>
   );
