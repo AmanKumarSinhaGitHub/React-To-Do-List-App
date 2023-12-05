@@ -10,7 +10,7 @@ A simple and responsive To-Do List app built with React.
 
 ## Live Demo
 
-You can view a live demo of the app [https://amankumarsinhagithub.github.io/React-To-Do-List/](https://amankumarsinhagithub.github.io/React-To-Do-List/).
+You can view a live demo of the app [https://amankumarsinhagithub.github.io/React-To-Do-List-App/](https://amankumarsinhagithub.github.io/React-To-Do-List-App/).
 
 ## Getting Started
 
