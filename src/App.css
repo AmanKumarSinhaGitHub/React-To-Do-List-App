@@ -208,7 +208,7 @@ input:active {
 
 @media screen and (max-width: 600px) {
   #title h1 {
-    font-size: 1.5em;
+    font-size: 2em;
   }
 
   button {

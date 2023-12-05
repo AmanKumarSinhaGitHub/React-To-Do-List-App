@@ -110,7 +110,7 @@ function App() {
       )}
 
       <footer className="container">
-        <h3 id="footerText">Thanks for using our To-Do-List App 💖</h3>
+        <p id="footerText">Copyright © 2023 • Aman</p>
       </footer>
     </>
   );
