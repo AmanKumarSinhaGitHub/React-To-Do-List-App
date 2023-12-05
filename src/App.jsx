@@ -57,7 +57,10 @@ function App() {
       </header>
 
       <main>
-        <section className={`container ${inputError ? "shake" : ""}`}>
+        <form
+          className={`container ${inputError ? "shake" : ""}`}
+          onSubmit={(e) => e.preventDefault()}
+        >
           <input
             type="text"
             name="task"
@@ -66,7 +69,7 @@ function App() {
             onChange={handleChange}
           />
           <button onClick={handleClickTaskAdd}>Add Task</button>
-        </section>
+        </form>
 
         <section className="todoListContainer">
           {taskList.map((task, index) => (
