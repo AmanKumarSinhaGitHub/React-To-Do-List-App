@@ -29,7 +29,7 @@ Make sure you have [Node.js](https://nodejs.org/) installed on your machine.
 2. Navigate to the project directory:
 
    ```bash
-   cd To-Do-List
+   cd React-To-Do-List
    ```
 
 3. Install dependencies:
