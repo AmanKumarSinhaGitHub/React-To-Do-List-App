@@ -1,7 +1,8 @@
 import { useState } from "react";
-import Checkbox from "@mui/material/Checkbox";
-import ClearIcon from "@mui/icons-material/Clear";
+
 import "./App.css";
+import Form from "./Form";
+import Todos from "./Todos";
 
 function App() {
   const [task, setTask] = useState("");
@@ -57,53 +58,9 @@ function App() {
       </header>
 
       <main>
-        <form
-          className={`container ${inputError ? "shake" : ""}`}
-          onSubmit={(e) => e.preventDefault()}
-        >
-          <input
-            type="text"
-            name="task"
-            placeholder="Enter Task"
-            value={task}
-            onChange={handleChange}
-          />
-          <button onClick={handleClickTaskAdd}>Add Task</button>
-        </form>
+        <Form inputError={inputError} task={task} handleChange={handleChange} handleClickTaskAdd={handleClickTaskAdd} />
 
-        <section className="todoListContainer">
-          {taskList.map((task, index) => (
-            <div key={index} className="todoItem">
-              <div className="container">
-                <div className="checkBox">
-                  <Checkbox
-                    sx={{
-                      color: "white",
-                    }}
-                    checked={task.isChecked}
-                    onChange={() => handleChangeCheckBox(index)}
-                  />
-                </div>
-
-                <div className=" itemName">
-                  <p className={task.isChecked ? "strikethrough" : ""}>
-                    {task.text}
-                  </p>
-                </div>
-              </div>
-              <div
-                className="deleteItem"
-                onClick={() => handleDeleteTask(index)}
-              >
-                <ClearIcon
-                  sx={{
-                    fontSize: "1.5em",
-                  }}
-                />
-              </div>
-            </div>
-          ))}
-        </section>
+        <Todos taskList={taskList} handleChangeCheckBox={handleChangeCheckBox} handleDeleteTask={handleDeleteTask} />
       </main>
 
       {showPopup && (
