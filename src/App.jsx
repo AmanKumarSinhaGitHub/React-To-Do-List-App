@@ -1,8 +1,7 @@
 import { useState } from "react";
-
 import "./App.css";
-import Form from "./Form";
-import Todos from "./Todos";
+import TaskInputForm from "./components/TaskInputForm";
+import Todos from "./components/Todos";
 
 function App() {
   const [task, setTask] = useState("");
@@ -58,9 +57,18 @@ function App() {
       </header>
 
       <main>
-        <Form inputError={inputError} task={task} handleChange={handleChange} handleClickTaskAdd={handleClickTaskAdd} />
+        <TaskInputForm
+          inputError={inputError}
+          task={task}
+          handleChange={handleChange}
+          handleClickTaskAdd={handleClickTaskAdd}
+        />
 
-        <Todos taskList={taskList} handleChangeCheckBox={handleChangeCheckBox} handleDeleteTask={handleDeleteTask} />
+        <Todos
+          taskList={taskList}
+          handleChangeCheckBox={handleChangeCheckBox}
+          handleDeleteTask={handleDeleteTask}
+        />
       </main>
 
       {showPopup && (

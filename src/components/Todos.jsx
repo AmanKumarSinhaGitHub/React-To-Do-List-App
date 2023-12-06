@@ -2,8 +2,8 @@ import Checkbox from "@mui/material/Checkbox";
 import ClearIcon from "@mui/icons-material/Clear";
 
 function Todos({ taskList, handleChangeCheckBox, handleDeleteTask }) {
-   return (
-      <section className="todoListContainer">
+  return (
+    <section className="todoListContainer">
       {taskList.map((task, index) => (
         <div key={index} className="todoItem">
           <div className="container">
@@ -23,10 +23,7 @@ function Todos({ taskList, handleChangeCheckBox, handleDeleteTask }) {
               </p>
             </div>
           </div>
-          <div
-            className="deleteItem"
-            onClick={() => handleDeleteTask(index)}
-          >
+          <div className="deleteItem" onClick={() => handleDeleteTask(index)}>
             <ClearIcon
               sx={{
                 fontSize: "1.5em",
@@ -36,7 +33,7 @@ function Todos({ taskList, handleChangeCheckBox, handleDeleteTask }) {
         </div>
       ))}
     </section>
-   )
+  );
 }
 
-export default Todos
+export default Todos;

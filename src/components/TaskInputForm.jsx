@@ -1,9 +1,6 @@
-
-import "./App.css";
-
 function Form({ inputError, task, handleChange, handleClickTaskAdd }) {
-   return (
-      <form
+  return (
+    <form
       className={`container ${inputError ? "shake" : ""}`}
       onSubmit={(e) => e.preventDefault()}
     >
@@ -16,7 +13,7 @@ function Form({ inputError, task, handleChange, handleClickTaskAdd }) {
       />
       <button onClick={handleClickTaskAdd}>Add Task</button>
     </form>
-   )
+  );
 }
 
-export default Form
+export default Form;

@@ -1,4 +1,6 @@
-*::before, *, *::after {
+*::before,
+*,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -21,7 +23,7 @@ body {
   margin: 1em;
 }
 
-#footerText{
+#footerText {
   font-style: italic;
   margin-top: 1em;
 }
@@ -188,11 +190,11 @@ input:active {
   text-decoration: line-through;
 }
 
-.itemName p{
+.itemName p {
   font-size: 1.5em;
 }
 
-.todoListContainer{
+.todoListContainer {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -205,7 +207,7 @@ input:active {
 }
 
 .deleteItem:hover {
-  color: rgb(186, 29, 29); 
+  color: rgb(186, 29, 29);
 }
 
 @media screen and (max-width: 600px) {
