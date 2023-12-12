@@ -1,7 +1,9 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import "./App.css";
 import TaskInputForm from "./components/TaskInputForm";
 import Todos from "./components/Todos";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 function App() {
   const [task, setTask] = useState("");
@@ -10,7 +12,7 @@ function App() {
   const [showPopup, setShowPopup] = useState(false);
 
   function handleClickTaskAdd() {
-    const formattedTask = task.trim().toLowerCase(); 
+    const formattedTask = task.trim().toLowerCase();
 
     if (formattedTask === "") {
       setInputError(true);
@@ -23,12 +25,13 @@ function App() {
     }
 
     if (taskList.some((t) => t.text.toLowerCase() === formattedTask)) {
-     
       setShowPopup(true);
 
       setTimeout(() => {
         setShowPopup(false);
-      }, 2000);
+      }, 1500);
+
+      setTask("");
 
       return;
     }
@@ -41,23 +44,9 @@ function App() {
     setTask(e.target.value);
   }
 
-  function handleChangeCheckBox(index) {
-    const updatedTaskList = [...taskList];
-    updatedTaskList[index].isChecked = !updatedTaskList[index].isChecked;
-    setTaskList(updatedTaskList);
-  }
-
-  function handleDeleteTask(index) {
-    const updatedTaskList = [...taskList];
-    updatedTaskList.splice(index, 1);
-    setTaskList(updatedTaskList);
-  }
-
   return (
     <>
-      <header id="title" className="container">
-        <h1>To Do List</h1>
-      </header>
+      <Header />
 
       <main>
         <TaskInputForm
@@ -67,22 +56,16 @@ function App() {
           handleClickTaskAdd={handleClickTaskAdd}
         />
 
-        <Todos
-          taskList={taskList}
-          handleChangeCheckBox={handleChangeCheckBox}
-          handleDeleteTask={handleDeleteTask}
-        />
+        <Todos taskList={taskList} setTaskList={setTaskList} />
+
+        {showPopup && (
+          <div className="popup">
+            <p>Task already exists!</p>
+          </div>
+        )}
       </main>
 
-      {showPopup && (
-        <div className="popup">
-          <p>Task already exists!</p>
-        </div>
-      )}
-
-      <footer className="container">
-        <p id="footerText">Copyright © 2023 • Aman</p>
-      </footer>
+      <Footer />
     </>
   );
 }

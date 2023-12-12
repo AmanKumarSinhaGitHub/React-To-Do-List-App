@@ -82,7 +82,7 @@ button:active {
 
 input {
   padding: 12px;
-  font-size: 16px;
+  font-size: 18px;
   border: 1px solid var(--primary-color);
   border-radius: 6px;
   width: 25vw;
