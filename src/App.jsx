@@ -10,7 +10,9 @@ function App() {
   const [showPopup, setShowPopup] = useState(false);
 
   function handleClickTaskAdd() {
-    if (task.trim() === "") {
+    const formattedTask = task.trim().toLowerCase(); 
+
+    if (formattedTask === "") {
       setInputError(true);
 
       setTimeout(() => {
@@ -20,7 +22,8 @@ function App() {
       return;
     }
 
-    if (taskList.some((t) => t.text === task)) {
+    if (taskList.some((t) => t.text.toLowerCase() === formattedTask)) {
+     
       setShowPopup(true);
 
       setTimeout(() => {
