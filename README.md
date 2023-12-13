@@ -7,10 +7,11 @@ A simple and responsive To-Do List app built with React.
 - Add tasks to the to-do list
 - Mark tasks as completed
 - Delete tasks
+- **Reorder tasks:** Easily move tasks up or down in the list for better organization.
 
-## Live Demo
+## [Live Demo](https://amankumarsinhagithub.github.io/React-To-Do-List-App/)
 
-You can view a live demo of the app [https://amankumarsinhagithub.github.io/React-To-Do-List-App/](https://amankumarsinhagithub.github.io/React-To-Do-List-App/).
+Check out the live demo of the app [here](https://amankumarsinhagithub.github.io/React-To-Do-List-App/).
 
 ## Getting Started
 
@@ -20,19 +21,19 @@ Make sure you have [Node.js](https://nodejs.org/) installed on your machine.
 
 ### Installation
 
-1. Clone the repository:
+1. **Clone the repository:**
 
    ```bash
    git clone https://github.com/amankumarsinhagithub/React-To-Do-List.git
    ```
 
-2. Navigate to the project directory:
+2. **Navigate to the project directory:**
 
    ```bash
    cd React-To-Do-List
    ```
 
-3. Install dependencies:
+3. **Install dependencies:**
 
    ```bash
    npm install
@@ -40,13 +41,13 @@ Make sure you have [Node.js](https://nodejs.org/) installed on your machine.
 
 ### Usage
 
-1. Run the app:
+1. **Run the app:**
 
    ```bash
    npm run dev
    ```
 
-2. Open your browser and visit [http://localhost:5173/React-To-Do-List-App/](http://localhost:5173/React-To-Do-List-App/) to use the app.
+2. **Open your browser and visit [http://localhost:5173/React-To-Do-List-App/](http://localhost:5173/React-To-Do-List-App/) to use the app.**
 
 ## Contributing
 
@@ -88,9 +89,9 @@ We welcome contributions from the community! If you'd like to contribute to the 
 
 10. **Merge:** Once your changes are approved, they will be merged into the main branch.
 
+## Contributors
 
-## Contrbutors
-- @[Mucha](https://github.com/MuchaSsak)
+- [@Mucha](https://github.com/MuchaSsak)
 
 Thank you for contributing to the React To-Do List App! 🚀
 
