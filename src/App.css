@@ -217,8 +217,12 @@ input:active {
   }
 
   input {
-    font-size: 16px;
+    font-size: 1em;
     width: 50vw;
+  }
+
+  .itemName p {
+    font-size: 1.2em;
   }
 
   .todoItem {
