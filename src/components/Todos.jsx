@@ -1,6 +1,8 @@
 import React from "react";
 import Checkbox from "@mui/material/Checkbox";
 import ClearIcon from "@mui/icons-material/Clear";
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 
 function Todos({ taskList, setTaskList }) {
   function handleChangeCheckBox(index) {
@@ -13,6 +15,28 @@ function Todos({ taskList, setTaskList }) {
     const updatedTaskList = [...taskList];
     updatedTaskList.splice(index, 1);
     setTaskList(updatedTaskList);
+  }
+
+  function handleTaskUp(index) {
+    if (index !== 0) {
+      const updatedTaskList = [...taskList];
+      const temp1 = updatedTaskList[index];
+      const temp2 = updatedTaskList[index - 1];
+      updatedTaskList[index] = temp2;
+      updatedTaskList[index - 1] = temp1;
+      setTaskList(updatedTaskList);
+    }
+  }
+
+  function handleTaskDown(index) {
+    if (index !== taskList.length - 1) {
+      const updatedTaskList = [...taskList];
+      const temp1 = updatedTaskList[index];
+      const temp2 = updatedTaskList[index + 1];
+      updatedTaskList[index] = temp2;
+      updatedTaskList[index + 1] = temp1;
+      setTaskList(updatedTaskList);
+    }
   }
 
   return (
@@ -38,14 +62,42 @@ function Todos({ taskList, setTaskList }) {
               </div>
             </div>
 
-            <div className="deleteItem" onClick={() => handleDeleteTask(index)}>
-              <ClearIcon
+            <div className="icons">
+              <KeyboardArrowUpIcon
+                onClick={() => handleTaskUp(index)}
                 sx={{
-                  fontSize: "1.7em",
-                  marginRight: "1em",
+                  cursor: "pointer",
+                  fontSize: "2em",
                   transition: "font-size 0.3s",
                   ":hover": {
-                    fontSize: "1.8em",
+                    fontSize: "2.05em",
+                    color: "#59C2FF",
+                  },
+                }}
+              />
+
+              <KeyboardArrowDownIcon
+                onClick={() => handleTaskDown(index)}
+                sx={{
+                  cursor: "pointer",
+                  fontSize: "2em",
+                  transition: "font-size 0.3s",
+                  ":hover": {
+                    fontSize: "2.05em",
+                    color: "#59C2FF",
+                  },
+                }}
+              />
+
+              <ClearIcon
+                onClick={() => handleDeleteTask(index)}
+                sx={{
+                  cursor: "pointer",
+                  fontSize: "1.7em",
+                  transition: "font-size 0.3s",
+                  ":hover": {
+                    fontSize: "1.75em",
+                    color: "#59C2FF",
                   },
                 }}
               />

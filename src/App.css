@@ -188,6 +188,7 @@ input:active {
 
 .strikethrough {
   text-decoration: line-through;
+  color: rgba(227, 221, 211, 0.428);
 }
 
 .itemName p {
@@ -201,13 +202,9 @@ input:active {
   flex-direction: column;
 }
 
-.deleteItem {
-  cursor: pointer;
-  transition: color 0.3s;
-}
-
-.deleteItem:hover {
-  color: rgb(186, 29, 29);
+.icons {
+  margin-right: 1em;
+  color: rgba(227, 221, 211, 0.428);
 }
 
 @media screen and (max-width: 600px) {
