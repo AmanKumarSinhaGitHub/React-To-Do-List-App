@@ -4,10 +4,19 @@ A simple and responsive To-Do List app built with React.
 
 ## Features
 
-- Add tasks to the to-do list
-- Mark tasks as completed
-- Delete tasks
-- **Reorder tasks:** Easily move tasks up or down in the list for better organization.
+- **Add tasks:** Easily input and save new tasks you want to remember or complete.
+
+- **Mark tasks as completed:**
+  Indicate when a task is finished to keep track of your progress.
+
+- **Delete tasks:**
+  Remove tasks from your to-do list if you no longer need them.
+
+- **Reorder tasks:**
+  Change the order of tasks by moving them up or down for better organization.
+
+- **Persistent Storage:**
+  Your to-do list is automatically saved to local storage. This means your tasks will stay even if you refresh the page or reopen the app.
 
 ## [Live Demo](https://amankumarsinhagithub.github.io/React-To-Do-List-App/)
 
