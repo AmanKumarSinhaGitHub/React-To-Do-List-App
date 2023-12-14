@@ -115,6 +115,7 @@ input:active {
   box-sizing: border-box;
   margin-bottom: 10px;
   box-shadow: var(--box-shadow-color) 0 2px 4px, var(--box-shadow-color) 0 7px 13px -3px, var(--box-shadow-color) 0 -3px 0 inset;
+  background-color: #161B22;
 }
 
 .todoItem:hover {
@@ -203,8 +204,11 @@ input:active {
 }
 
 .icons {
-  margin-right: 1em;
+  margin-right: 0.5em;
   color: rgba(227, 221, 211, 0.428);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @media screen and (max-width: 600px) {

@@ -48,7 +48,7 @@ function Todos({ taskList, setTaskList }) {
               <div className="checkBox">
                 <Checkbox
                   sx={{
-                    color: "white",
+                    color: "rgba(227, 221, 211, 0.428)",
                   }}
                   checked={task.isChecked}
                   onChange={() => handleChangeCheckBox(index)}
