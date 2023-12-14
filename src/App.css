@@ -1,3 +1,11 @@
+:root {
+  --primary-color: #5468ff;
+  --secondary-color: #5adaff;
+  --box-shadow-color: rgba(45, 35, 66, .4);
+  --background-color: #161B22;
+  --text-color: #fff;
+}
+
 *::before,
 *,
 *::after {
@@ -12,12 +20,6 @@ body {
   overflow-x: hidden;
 }
 
-:root {
-  --primary-color: #5468ff;
-  --secondary-color: #5adaff;
-  --box-shadow-color: rgba(45, 35, 66, .4);
-}
-
 #title h1 {
   font-size: 2.5em;
   margin: 1em;
@@ -25,7 +27,7 @@ body {
 
 #footerText {
   font-style: italic;
-  margin-top: 1em;
+  margin-top: 5em;
 }
 
 .container {
@@ -42,17 +44,15 @@ button {
   border-radius: 6px;
   box-shadow: var(--box-shadow-color) 0 2px 4px, var(--box-shadow-color) 0 7px 13px -3px, var(--box-shadow-color) 0 -3px 0 inset;
   box-sizing: border-box;
-  color: #fff;
+  color: var(--text-color);
   cursor: pointer;
-  display: inline-flex;
   font-family: "JetBrains Mono", monospace;
   height: 48px;
   justify-content: center;
   line-height: 1;
   list-style: none;
   overflow: hidden;
-  padding-left: 16px;
-  padding-right: 16px;
+  padding: 0 16px;
   position: relative;
   text-align: left;
   text-decoration: none;
@@ -115,7 +115,7 @@ input:active {
   box-sizing: border-box;
   margin-bottom: 10px;
   box-shadow: var(--box-shadow-color) 0 2px 4px, var(--box-shadow-color) 0 7px 13px -3px, var(--box-shadow-color) 0 -3px 0 inset;
-  background-color: #161B22;
+  background-color: var(--background-color);
 }
 
 .todoItem:hover {
@@ -132,24 +132,15 @@ input:active {
 }
 
 @keyframes shake {
-
-  0%,
-  100% {
+  0%, 100% {
     transform: translateX(0);
   }
 
-  10%,
-  30%,
-  50%,
-  70%,
-  90% {
+  10%, 30%, 50%, 70%, 90% {
     transform: translateX(-10px);
   }
 
-  20%,
-  40%,
-  60%,
-  80% {
+  20%, 40%, 60%, 80% {
     transform: translateX(10px);
   }
 }
@@ -163,8 +154,8 @@ input:active {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #5468ff;
-  color: #fff;
+  background-color: var(--primary-color);
+  color: var(--text-color);
   padding: 20px;
   border-radius: 6px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -178,8 +169,8 @@ input:active {
 }
 
 .popup button {
-  background-color: #fff;
-  color: #5468ff;
+  background-color: var(--text-color);
+  color: var(--primary-color);
   border: none;
   padding: 10px 20px;
   margin-top: 10px;
@@ -209,6 +200,25 @@ input:active {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+@media screen and (max-width: 900px) {
+  #title h1 {
+    font-size: 2.2em;
+  }
+
+  input {
+    font-size: 1.1em;
+    width: 40vw;
+  }
+
+  .itemName p {
+    font-size: 1.3em;
+  }
+
+  .todoItem {
+    width: 80%;
+  }
 }
 
 @media screen and (max-width: 600px) {
