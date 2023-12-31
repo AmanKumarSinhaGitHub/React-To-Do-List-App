@@ -3,8 +3,10 @@ import Checkbox from "@mui/material/Checkbox";
 import ClearIcon from "@mui/icons-material/Clear";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import EditIcon from "@mui/icons-material/Edit";
 
-function Todos({ taskList, setTaskList }) {
+
+function Todos({ taskList, setTaskList, setTask, setEditing}) {
   function handleChangeCheckBox(index) {
     const updatedTaskList = [...taskList];
     updatedTaskList[index].isChecked = !updatedTaskList[index].isChecked;
@@ -37,6 +39,13 @@ function Todos({ taskList, setTaskList }) {
       updatedTaskList[index + 1] = temp1;
       setTaskList(updatedTaskList);
     }
+  }
+
+  function handleTaskEdit(index){
+    const updatedTaskList = [...taskList]
+    const taskToEdit = updatedTaskList[index];
+    setTask(taskToEdit.text)
+    setEditing({ isEdit: true, index: index });
   }
 
   return (
@@ -84,6 +93,19 @@ function Todos({ taskList, setTaskList }) {
                   transition: "font-size 0.3s",
                   ":hover": {
                     fontSize: "2.05em",
+                    color: "#59C2FF",
+                  },
+                }}
+              />
+
+              <EditIcon
+                onClick={() => handleTaskEdit(index)}
+                sx={{
+                  cursor: "pointer",
+                  fontSize: "1.5em",
+                  transition: "font-size 0.3s",
+                  ":hover": {
+                    fontSize: "1.7em",
                     color: "#59C2FF",
                   },
                 }}

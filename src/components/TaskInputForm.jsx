@@ -1,6 +1,6 @@
 import React from "react";
 
-function TaskInputForm({ inputError, task, handleChange, handleClickTaskAdd }) {
+function TaskInputForm({ inputError, task, handleChange, handleClickTaskAdd, editing}) {
   return (
     <>
       <form
@@ -15,7 +15,7 @@ function TaskInputForm({ inputError, task, handleChange, handleClickTaskAdd }) {
           onChange={handleChange}
         />
 
-        <button onClick={handleClickTaskAdd}>Add Task</button>
+        <button onClick={handleClickTaskAdd}> {editing.isEdit? "Edit": "Add"} Task</button>
       </form>
     </>
   );

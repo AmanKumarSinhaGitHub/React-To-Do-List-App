@@ -10,6 +10,8 @@ function App() {
   const [taskList, setTaskList] = useState(null); // Set initial state to null
   const [inputError, setInputError] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
+  const [editing, setEditing] = useState({index: null, isEdit: false});
+
 
   // Load tasks from localStorage on component mount
   useEffect(() => {
@@ -54,8 +56,21 @@ function App() {
     }
 
     // Update taskList state and localStorage
-    const updatedTaskList = [...(taskList || []), { text: task, isChecked: false }];
-    setTaskList(updatedTaskList);
+    if (!editing.isEdit) {
+      const updatedTaskList = [
+        ...(taskList || []),
+        { text: task, isChecked: false },
+      ];
+      setTaskList(updatedTaskList);
+    }
+    else{
+      const updatedTaskList = [...taskList]
+      const editIndex = editing.index;
+      console.log(editIndex)
+      updatedTaskList[editIndex].text = task;
+      setTaskList(updatedTaskList);
+      setEditing({index: null, isEdit: false});
+    }
     setTask("");
   }
 
@@ -73,9 +88,16 @@ function App() {
           task={task}
           handleChange={handleChange}
           handleClickTaskAdd={handleClickTaskAdd}
+          editing={editing}
         />
 
-        <Todos taskList={taskList || []} setTaskList={setTaskList} />
+        <Todos
+          taskList={taskList || []}
+          setTaskList={setTaskList}
+          setTask={setTask}
+          editing={editing}
+          setEditing={setEditing}
+        />
 
         {showPopup && (
           <div className="popup">
