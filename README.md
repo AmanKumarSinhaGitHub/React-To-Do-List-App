@@ -9,6 +9,9 @@ A simple and responsive To-Do List app built with React.
 - **Mark tasks as completed:**
   Indicate when a task is finished to keep track of your progress.
 
+- **Edit a task:**
+  Edit tasks from your to-do list
+
 - **Delete tasks:**
   Remove tasks from your to-do list if you no longer need them.
 
